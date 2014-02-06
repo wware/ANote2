@@ -1,0 +1,106 @@
+<plugin start="false" startOrder="11">
+	<uid>pt.uminho.anote2.aibench.corpusloaders</uid>
+	<name>@Note2 Corpus Loaders (Plug-in)</name>
+	<version>0.9.11</version>
+	
+	<lifecycleclass>pt.uminho.anote2.corpusloaders.lifecycle.Lifecycle</lifecycleclass>	
+	
+		
+	<dependencies>
+		<dependency uid="pt.uminho.anote2.core"/>
+		<dependency uid="pt.uminho.anote2.datastructures"/>
+		<dependency uid="pt.uminho.anote2.aibench.corpora"/>
+		<dependency uid="pt.uminho.anote2.aibench.utils"/>
+		<dependency uid="pt.uminho.anote2.gate7"/>		
+	</dependencies>
+	
+	<extensions>
+	
+		<!-- Corpus Loaders -->
+		
+		<!-- Operations -->
+		
+				<!-- AIMED Proteins Loader-->
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.corpusloaders.operations.CreateCorpusByAIMEDProteinCorpus">
+					<operation-description 	name="AIMED Protein Corpus Loader" 
+											uid="operations.ccbyaimed"
+											path="2@Corpus/1@Create Corpus"
+											popupPath="1@Create Corpus"					
+					/>
+		</extension>
+		
+						<!-- Icon -->
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.ccbyaimed"
+                                   icon="icons/Download.png"
+                    />
+        </extension>  
+        
+        				<!-- GUI -->
+        		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.ccbyaimed" 
+									class="pt.uminho.anote2.corpusloaders.gui.SelectAIMEDCorpusGUI"
+					/>	
+		</extension>
+		
+				<!-- @Note v1.0 Loader -->
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.corpusloaders.operations.CreateCorpusByAnotev1Corpus">
+					<operation-description 	name="@Note v1.0 Corpus Loader" 
+											uid="operations.ccbyanote"
+											path="2@Corpus/1@Create Corpus"
+											popupPath="1@Create Corpus"				
+					/>
+		</extension>
+		
+				<!-- Icon -->
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.ccbyanote"
+                                   icon="icons/Download.png"
+                    />
+        </extension>  
+        		
+        		<!-- GUI -->
+        		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.ccbyanote" 
+									class="pt.uminho.anote2.corpusloaders.gui.SelectAnoteV1CorpusGUI"
+					/>	
+		</extension>
+		
+				<!-- Genia Event Corpus Loader -->
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.corpusloaders.operations.CreateCorpusByGeniaEventCorpus">
+					<operation-description 	name="Genia Event Corpus Loader" 
+											uid="operations.ccbygeniaevent"
+											path="2@Corpus/1@Create Corpus"
+											popupPath="1@Create Corpus"
+					/>
+		</extension>
+		
+					<!-- Icon -->
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.ccbygeniaevent"
+                                   icon="icons/Download.png"
+                    />
+        </extension>
+        
+                		<!-- GUI -->
+        		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.ccbygeniaevent" 
+									class="pt.uminho.anote2.corpusloaders.gui.SelectGeniaEventCorpusGUI"
+					/>	
+		</extension>
+
+	</extensions>
+
+</plugin>

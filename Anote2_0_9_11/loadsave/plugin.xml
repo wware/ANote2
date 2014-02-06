@@ -1,0 +1,98 @@
+<plugin start="false" startOrder="18">
+	<uid>pt.uminho.anote2.aibench.loadsave</uid>
+	<name>@Note2 Load/Save (Plug-in)</name>
+	<version>0.9.11</version>
+	<lifecycleclass>pt.uminho.anote2.aibench.loadsave.lifecycle.Lifecycle</lifecycleclass>	
+
+	<dependencies>
+		<dependency uid="pt.uminho.anote2.core"/>
+		<dependency uid="pt.uminho.anote2.datastructures"/>
+		<dependency uid="pt.uminho.anote2.aibench.corpora"/>
+		<dependency uid="pt.uminho.anote2.aibench.utils"/>
+		<dependency uid="pt.uminho.anote2.resources"/>
+		<dependency uid="pt.uminho.anote2.aibench.publicationmanager"/>
+	</dependencies>
+	
+	<extensions>
+       
+        <!-- Save -->
+        
+        		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.loadsave.operations.SaveOperation">
+					<operation-description 	name="Save Session" 
+											uid="operations.save"
+											path="0@File"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.save" 
+									class="pt.uminho.anote2.aibench.loadsave.gui.SaveGUI"
+					/>	
+		</extension>	
+		
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.save"
+                                   icon="icons/saveAll.png"
+                    />
+        </extension>
+        
+        <!-- Load -->	
+        
+        <extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.loadsave.operations.LoadOperation">
+					<operation-description 	name="Load Session" 
+											uid="operations.loadprojects"
+											path="0@File"
+											popupPath="1@ROOT"	
+					/>
+		</extension>
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.loadprojects"
+                                   icon="icons/Upload20.png"
+                    />
+        </extension>
+        
+        <extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.loadprojects" 
+									class="pt.uminho.anote2.aibench.loadsave.gui.LoadSessionGUI"
+					/>	
+		</extension>	
+        
+        <!-- Load Steps -->
+        
+        <extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.loadsave.operations.LoadCorpus">
+					<operation-description 	name="" 
+											uid="operations.saveload.loadcorpora"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.loadsave.operations.LoadResource">
+					<operation-description 	name="" 
+											uid="operations.saveload.loadresources"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.loadsave.operations.LoadPublicationManager">
+					<operation-description 	name="" 
+											uid="operations.saveload.loadpublicationmanager"
+					/>
+		</extension>
+	
+	</extensions>
+
+</plugin>

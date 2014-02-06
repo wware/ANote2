@@ -1,0 +1,17 @@
+<plugin start="false" startOrder="14">
+	<uid>pt.uminho.anote2.gate7</uid>
+	<name>@Note2 Gate7 (Plug-in)</name>
+	<version>0.9.11</version>
+		
+	<dependencies>
+		<dependency uid="pt.uminho.anote2.core"/>
+		<dependency uid="pt.uminho.anote2.datastructures"/>
+		<dependency uid="pt.uminho.anote2.aibench.corpora"/>
+		<dependency uid="pt.uminho.anote2.aibench.utils"/>
+	</dependencies>
+	
+	<extensions>
+
+	</extensions>
+
+</plugin>

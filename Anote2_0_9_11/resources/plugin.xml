@@ -1,0 +1,805 @@
+<plugin start="false" startOrder="9">
+	<uid>pt.uminho.anote2.resources</uid>
+	<name>@Note2 Resources (Plug-in)</name>
+	<version>0.9.11</version>
+	<lifecycleclass>pt.uminho.anote2.aibench.resources.lifecycle.Lifecycle</lifecycleclass>	
+	
+	<dependencies>
+		<dependency uid="pt.uminho.anote2.core"/>
+		<dependency uid="pt.uminho.anote2.datastructures"/>
+		<dependency uid="pt.uminho.anote2.aibench.utils"/>
+	</dependencies>
+	
+	<extensions>
+	
+		<!-- Operations -->
+			<!-- Init -->
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.InitResources">
+					<operation-description 	name="" 
+											uid="operations.initresources"
+									
+					/>
+		</extension>
+        
+        <!-- Save -->
+
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.SaveResourceStatus">
+					<operation-description 	name="" 
+											uid="operations.saveresources"
+					/>
+		</extension>
+		
+		<!-- Dics -->
+		
+		<!-- Add Dic -->
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.dics.CreateDictionary">
+					<operation-description 	name="Create" 
+											uid="operations.createdicionary"
+											path="4@Resources/1@Dictionary"
+											popupPath="1@ROOT"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.createdicionary" 
+									class="pt.uminho.anote2.aibench.resources.gui.wizard.createdictionary.CreateDictionaryWizard1"
+					/>	
+		</extension>
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.createdicionary"
+                                   icon="icons/Download.png"
+                    />
+        </extension> 
+		
+		
+		
+		<!-- Update Dic -->
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.dics.UploadDicionary">
+					<operation-description 	name="Native Loaders (Uniprot,BioCyc,Kegg,Chebi,NCBI Taxonomy,Brenda,Entrez Gene)" 
+											uid="operations.updateDic"
+											path="4@Resources/1@Dictionary/1@Loader"
+											popupPath="1@Loader"				
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.updateDic" 
+									class="pt.uminho.anote2.aibench.resources.gui.LoadDicContentsGUI"
+					/>	
+		</extension>
+		
+	
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.updateDic"
+                                   icon="icons/Refresh.png"
+                    />
+        </extension> 
+        
+        <!-- BiowareHouse -->
+        
+        <extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.dics.UpdateDictionaryBiowareHouse">
+					<operation-description 	name="" 
+											uid="operations.updatebioware"
+					/>
+		</extension>
+		
+		 
+        <!-- Import From CSV File -->
+        
+        <extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.dics.LoadDictionaryCSV">
+					<operation-description 	name="Update From CSV File" 
+											uid="operations.loaddicfromcsv"
+											path="4@Resources/2@Dictionary"
+											popupPath="2@ROOT"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.loaddicfromcsv" 
+									class="pt.uminho.anote2.aibench.resources.gui.ImportDictionaryTermsFromCSVFileGUI"
+					/>	
+		</extension>
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.loaddicfromcsv"
+                                   icon="icons/Upload20.png"
+                    />
+        </extension>  
+        
+        <!-- Merge -->
+        
+        <extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.dics.MergeDictionary">
+					<operation-description 	name="Merge" 
+											uid="operations.mergedics"
+											path="4@Resources/3@Dictionary"
+											popupPath="3@ROOT"
+					/>
+		</extension>
+	
+			
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.mergedics" 
+									class="pt.uminho.anote2.aibench.resources.gui.MergeDictionaries"
+					/>	
+		</extension>
+
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.mergedics"
+                                   icon="icons/resultset.png"
+                    />
+        </extension> 
+       
+        
+        <!-- REmove Class Terms-->
+        
+         <extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.dics.RemoveClassElementsOperation">
+					<operation-description 	name="" 
+											uid="operations.dicremovetermsbyclass"
+											path=""
+					/>
+		</extension>
+		
+		<!-- Dictionary Search -->
+		
+		
+		         <extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.dics.DictionarySearchOperation">
+					<operation-description 	name="" 
+											uid="operations.dictionarysearch"
+											path=""
+					/>
+		</extension>
+		
+		  <!-- lookup Tables -->
+		  <!-- Add -->
+		 <extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.lookuptables.CreateLookupTable">
+					<operation-description 	name="Create" 
+											uid="operations.createlookuptable"
+											path="4@Resources/2@Lookup Table"
+											popupPath="1@ROOT"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.createlookuptable" 
+									class="pt.uminho.anote2.aibench.resources.gui.CreateLookupTableGUI"
+					/>	
+		</extension>
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.createlookuptable"
+                                   icon="icons/Download.png"
+                    />
+        </extension> 
+		
+		<!-- Update -->
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.lookuptables.AddTermToLookupTable">
+					<operation-description 	name="Add Element" 
+											uid="operations.addelementtolookup"
+											path="4@Resources/2@Lookup Table"
+											popupPath="1@ROOT"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.addelementtolookup" 
+									class="pt.uminho.anote2.aibench.resources.gui.AddLookupTermGUI"
+					/>	
+		</extension>
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.addelementtolookup"
+                                   icon="icons/Refresh.png"
+                    />
+        </extension> 
+        
+        <!-- Load -->		
+		
+
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.lookuptables.LoadLookupTableCSV">
+					<operation-description 	name="Load (TSV FIle)" 
+											uid="operations.loadcsvlookup"
+											path="4@Resources/2@Lookup Table"
+											popupPath="2@ROOT"
+					/>
+		</extension>
+		
+        
+        <extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.loadcsvlookup"
+                                   icon="icons/Upload20.png"
+                    />
+        </extension>  
+        
+        <extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.loadcsvlookup" 
+									class="pt.uminho.anote2.aibench.resources.gui.ImportLookupTermsFromCSVFileGUI"
+					/>	
+		</extension>
+		
+		<!-- Save -->
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.lookuptables.SaveLookupTableCSV">
+					<operation-description 	name="Save (TSV FIle)" 
+											uid="operations.savecsvlookup"
+											path="4@Resources/2@Lookup Table"
+											popupPath="3@ROOT"
+					/>
+		</extension>
+		
+	    <extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.savecsvlookup" 
+									class="pt.uminho.anote2.aibench.resources.gui.SaveLookupTableGUI"
+					/>	
+		</extension>
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.savecsvlookup"
+                                   icon="icons/saveAll.png"
+                    />
+        </extension> 
+        
+        
+        <!-- Merge Lookups -->
+        
+        <extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.lookuptables.MergeLookupTable">
+					<operation-description 	name="Merge" 
+											uid="operations.mergelook"
+											path="4@Resources/2@Lookup Table"
+											popupPath="4@ROOT"
+					/>
+		</extension>
+		
+		
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.mergelook" 
+									class="pt.uminho.anote2.aibench.resources.gui.MergeLookupTablesGUI"
+					/>	
+		</extension>
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.mergelook"
+                                   icon="icons/resultset.png"
+                    />
+        </extension> 
+		
+		
+			  
+		  <!-- Ontologies -->
+		 
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.ontologies.CreateOntology">
+					<operation-description 	name="Create" 
+											uid="operations.createontology"
+											path="4@Resources/4@Ontology"
+											popupPath="1@ROOT"
+					/>
+		</extension>
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.createontology"
+                                   icon="icons/tree.png"
+                    />
+        </extension>
+        
+        <extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.createontology" 
+									class="pt.uminho.anote2.aibench.resources.gui.CreateOntologyGUI"
+					/>	
+		</extension> 	
+		
+		<!-- Update Ontology -->
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.ontologies.LoadOBOOntologyv1p0">
+					<operation-description 	name="Update (OBO Files 1.0)" 
+											uid="operations.updateontology"
+											path="4@Resources/4@Ontology"
+											popupPath="1@ROOT"
+					/>
+		</extension>
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.updateontology"
+                                   icon="icons/Refresh.png"
+                    />
+        </extension> 
+        
+        
+        <extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.updateontology" 
+									class="pt.uminho.anote2.aibench.resources.gui.OntologyOBOLoaderGUI"
+					/>	
+		</extension> 	
+        
+        
+				<!-- 1.2 -->
+		
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.ontologies.LoadOBOOntologyv1p2">
+					<operation-description 	name="Update (OBO Files 1.2)" 
+											uid="operations.updateontology12"
+											path="4@Resources/4@Ontology"
+											popupPath="2@ROOT"
+					/>
+		</extension>		
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.updateontology12"
+                                   icon="icons/Refresh.png"
+                    />
+        </extension> 	
+        
+        <extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.updateontology12" 
+									class="pt.uminho.anote2.aibench.resources.gui.OntologyOBO12LoaderGUI"
+					/>	
+		</extension> 		
+			  
+		<!-- Rules -->
+		<!-- Add -->  
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.rules.CreateRulesSet">
+					<operation-description 	name="Create" 
+											uid="operations.createruleset"
+											path="4@Resources/3@RuleSet"
+											popupPath="1@ROOT"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.createruleset" 
+									class="pt.uminho.anote2.aibench.resources.gui.CreateRulesSetGUI"
+					/>	
+		</extension>
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.createruleset"
+                                   icon="icons/Download.png"
+                    />
+        </extension> 
+		
+		
+		
+		<!-- Update -->
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.rules.NewRule">
+					<operation-description 	name="Add Rule" 
+											uid="operations.createrule"
+											path="4@Resources/3@RuleSet"
+											popupPath="1@ROOT"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.createrule" 
+									class="pt.uminho.anote2.aibench.resources.gui.CreateRuleGUI"
+					/>	
+		</extension>
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.createrule"
+                                   icon="icons/Refresh.png"
+                    />
+        </extension> 
+        
+        <!-- Merge -->
+        
+         <extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.rules.MergeRuleSet">
+					<operation-description 	name="Merge" 
+											uid="operations.mergerules"
+											path="4@Resources/3@RuleSet"
+											popupPath="2@ROOT"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.mergerules" 
+									class="pt.uminho.anote2.aibench.resources.gui.MergeRulesSetGUI"
+					/>	
+		</extension>
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.mergerules"
+                                   icon="icons/resultset.png"
+                    />
+        </extension> 
+        
+          <!-- lexical Words -->
+          
+		  <!-- Add -->
+		 <extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.lexicalwords.CreateLexicalWords">
+					<operation-description 	name="Create" 
+											uid="operations.createlexicalwords"
+											path="4@Resources/5@Lexical Words"
+											popupPath="1@ROOT"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.createlexicalwords" 
+									class="pt.uminho.anote2.aibench.resources.gui.CreateLexicalWordsGUI"
+					/>	
+		</extension>
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.createlexicalwords"
+                                   icon="icons/Download.png"
+                    />
+        </extension> 
+		
+		<!-- Update -->
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.lexicalwords.AddTermToLexicalWords">
+					<operation-description 	name="Add Element" 
+											uid="operations.addelementtolexicalwords"
+											path="4@Resources/5@Lexical Words"
+											popupPath="1@ROOT"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.addelementtolexicalwords" 
+									class="pt.uminho.anote2.aibench.resources.gui.AddLexicalWordsTermGUI"
+					/>	
+		</extension>
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.addelementtolexicalwords"
+                                   icon="icons/Refresh.png"
+                    />
+        </extension> 
+		
+		<!-- Save -->
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.lexicalwords.SaveLexicalWordsCSV">
+					<operation-description 	name="Save (TSV FIle)" 
+											uid="operations.savecsvlexicalwords"
+											path="4@Resources/5@Lexical Words"
+											popupPath="2@ROOT"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.savecsvlexicalwords" 
+									class="pt.uminho.anote2.aibench.resources.gui.SaveLexicaWordsGUI"
+					/>	
+		</extension>
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.savecsvlexicalwords"
+                                   icon="icons/saveAll.png"
+                    />
+        </extension> 
+		
+		
+		<!-- Load -->		
+		
+
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.lexicalwords.LoadLexicalWordsCSV">
+					<operation-description 	name="Load (TSV FIle)" 
+											uid="operations.loadcsvlexicalwords"
+											path="4@Resources/5@Lexical Words"
+											popupPath="3@ROOT"
+					/>
+		</extension>
+		
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.loadcsvlexicalwords" 
+									class="pt.uminho.anote2.aibench.resources.gui.ImportLexicalWordTermsFromCSVFileGUI"
+					/>	
+		</extension>
+        
+        <extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.loadcsvlexicalwords"
+                                   icon="icons/Upload20.png"
+                    />
+        </extension>  
+        
+        <!-- Refresh Elements -->
+        
+        <extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.lookuptables.refresh.RefreshLookupTables">
+					<operation-description 	name="" 
+											uid="operations.refreshlookuptables"
+											path=""
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.lookuptables.refresh.RefreshLookupTableElements">
+					<operation-description 	name="" 
+											uid="operations.refreshlookuptableselements"
+											path=""
+					/>
+		</extension>
+        
+        <!-- Merge Lexical Words -->
+        
+        <extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.resources.operations.lexicalwords.MergeLexicalWords">
+					<operation-description 	name="Merge" 
+											uid="operations.mergelexicalwords"
+											path="4@Resources/5@Lexical Words"
+											popupPath="4@ROOT"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.mergelexicalwords" 
+									class="pt.uminho.anote2.aibench.resources.gui.MergeLexicalWordsGUI"
+					/>	
+		</extension>
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.mergelexicalwords"
+                                   icon="icons/resultset.png"
+                    />
+        </extension> 
+		
+				
+		<!-- Views -->
+	
+		<!-- Dictionaries -->
+		
+		<extension uid="aibench.workbench" 
+				   name="aibench.workbench.view" >
+					<view name="Dictionaries View"
+						datatype="pt.uminho.anote2.aibench.resources.datatypes.Dictionaries"
+						class="pt.uminho.anote2.aibench.resources.views.DictionariesView"/>		
+		</extension>
+		
+			<!-- Dic -->
+			
+		<extension uid="aibench.workbench" 
+				   name="aibench.workbench.view" >
+					<view name="Dictionary View"
+						datatype="pt.uminho.anote2.aibench.resources.datatypes.DictionaryAibench"
+						class="pt.uminho.anote2.aibench.resources.views.DictionaryView"/>		
+		</extension>			
+			
+		
+		<!-- LookUpTables -->
+		
+		<extension uid="aibench.workbench" 
+				   name="aibench.workbench.view" >
+					<view name="Lookup Tables View"
+						datatype="pt.uminho.anote2.aibench.resources.datatypes.LookupTables"
+						class="pt.uminho.anote2.aibench.resources.views.LookupTablesView"/>		
+		</extension>
+		
+			<!-- LookupTable -->
+
+		<extension uid="aibench.workbench" 
+				   name="aibench.workbench.view" >
+					<view name="Lookup Table View"
+						datatype="pt.uminho.anote2.aibench.resources.datatypes.LookupTableAibench"
+						class="pt.uminho.anote2.aibench.resources.views.LookupTableView"/>		
+		</extension>
+		
+		<!-- Lexical Words Set -->
+		
+		<extension uid="aibench.workbench" 
+				   name="aibench.workbench.view" >
+					<view name="Lexical Words Set View"
+						datatype="pt.uminho.anote2.aibench.resources.datatypes.LexicalWordsSet"
+						class="pt.uminho.anote2.aibench.resources.views.LexicalWordsSetView"/>		
+		</extension>
+		
+		<!-- Lexical Words -->
+
+		<extension uid="aibench.workbench" 
+				   name="aibench.workbench.view" >
+					<view name="Lexical Words View"
+						datatype="pt.uminho.anote2.aibench.resources.datatypes.LexicalWordsAibench"
+						class="pt.uminho.anote2.aibench.resources.views.LexicalWordsView"/>		
+		</extension>
+		
+		<!-- Ontologies -->
+		
+		<extension uid="aibench.workbench" 
+				   name="aibench.workbench.view" >
+					<view name="Ontologies View"
+						datatype="pt.uminho.anote2.aibench.resources.datatypes.Ontologies"
+						class="pt.uminho.anote2.aibench.resources.views.OntologiesView"/>		
+		</extension>
+		
+		<!-- Ontology -->
+		
+		<extension uid="aibench.workbench" 
+				   name="aibench.workbench.view" >
+					<view name="Ontology View"
+						datatype="pt.uminho.anote2.aibench.resources.datatypes.OntologyAibench"
+						class="pt.uminho.anote2.aibench.resources.views.OntologyView"/>		
+		</extension>
+		
+		<!-- Rules -->
+		
+		<extension uid="aibench.workbench" 
+				   name="aibench.workbench.view" >
+					<view name="Rules Set View"
+						datatype="pt.uminho.anote2.aibench.resources.datatypes.RulesSet"
+						class="pt.uminho.anote2.aibench.resources.views.RulesSetView"/>		
+		</extension>
+		
+			<!-- Rule -->
+
+		<extension uid="aibench.workbench" 
+				   name="aibench.workbench.view" >
+					<view name="Rules View"
+						datatype="pt.uminho.anote2.aibench.resources.datatypes.RulesAibench"
+						class="pt.uminho.anote2.aibench.resources.views.RulesView"/>		
+		</extension>
+				
+		<!-- Icons -->
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<icon-datatype  datatype="pt.uminho.anote2.aibench.resources.datatypes.Resources" 
+									icon="icons/resourcesData.png"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<icon-datatype  datatype="pt.uminho.anote2.aibench.resources.datatypes.Dictionaries" 
+									icon="icons/dict.png"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<icon-datatype  datatype="pt.uminho.anote2.aibench.resources.datatypes.LookupTables" 
+									icon="icons/table.png"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<icon-datatype  datatype="pt.uminho.anote2.aibench.resources.datatypes.RulesSet" 
+									icon="icons/pen.png"
+					/>
+		</extension>	
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<icon-datatype  datatype="pt.uminho.anote2.aibench.resources.datatypes.LookupTableAibench" 
+									icon="icons/list.png"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<icon-datatype  datatype="pt.uminho.anote2.aibench.resources.datatypes.RulesAibench" 
+									icon="icons/rule26.png"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<icon-datatype  datatype="pt.uminho.anote2.aibench.resources.datatypes.DictionaryAibench" 
+									icon="icons/resources.png"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<icon-datatype  datatype="pt.uminho.anote2.aibench.resources.datatypes.Ontologies" 
+									icon="icons/onto16.png"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<icon-datatype  datatype="pt.uminho.anote2.aibench.resources.datatypes.OntologyAibench" 
+									icon="icons/tree.png"
+					/>
+		</extension>	
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<icon-datatype  datatype="pt.uminho.anote2.aibench.resources.datatypes.LexicalWordsSet" 
+									icon="icons/lexicalwordsset.png"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<icon-datatype  datatype="pt.uminho.anote2.aibench.resources.datatypes.LexicalWordsAibench" 
+									icon="icons/lexicalwords.png"
+					/>
+		</extension>								
+		
+	</extensions>
+
+</plugin>

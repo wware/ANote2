@@ -1,0 +1,119 @@
+<plugin start="false" startOrder="17">
+	<uid>pt.uminho.anote2.workflows</uid>
+	<name>@Note2 Workflows (Plug-in)</name>
+	<version>0.9.11</version>
+	
+	<lifecycleclass>pt.uminho.anote2.workflow.lifecycle.Lifecycle</lifecycleclass>
+	
+	<dependencies>
+		<dependency uid="pt.uminho.anote2.core"/>
+		<dependency uid="pt.uminho.anote2.datastructures"/>
+		<dependency uid="pt.uminho.anote2.aibench.utils"/>
+		<dependency uid="pt.uminho.anote2.aibench.publicationmanager"/>	
+		<dependency uid="pt.uminho.anote2.aibench.corpora"/>
+		<dependency uid="pt.uminho.anote2.aibench.nergate"/>
+		<dependency uid="pt.uminho.anote2.gate7"/>
+		<dependency uid="pt.uminho.anote2.resources"/>	
+		<dependency uid="pt.uminho.anote2.aibench.relation"/>
+		<dependency uid="pt.uminho.anote2.aibench.relationcoocorrence"/>
+		<dependency uid="pt.uminho.anote2.aibench.ner"/>
+		
+	</dependencies>
+	
+	<extensions>
+	
+		<!-- Operations -->
+		
+		<!-- General Workflow -->
+        <extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.workflow.operations.WorkflowGeneralOperation">
+					<operation-description 	name="Information Retrieval and Extraction"
+											uid="operations.generalworkflow" 
+											path="9@Workflow" 
+						
+					/>
+		</extension>
+		
+		<!-- GUI -->
+
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.generalworkflow" 
+									class="pt.uminho.anote2.workflow.wizards.general.WorkflowGeneral1SelectSteps"
+					/>	
+		</extension>
+		
+		<!-- Icon -->
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.generalworkflow"
+                                   icon="icons/anote_icon_16.png"
+                    />
+        </extension> 
+        
+        <!-- Query Workflow -->
+        
+        <extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.workflow.operations.WorkflowQueryOperation">
+					<operation-description 	name="Information Extraction (From Query)"
+											uid="operations.queryworkflow" 
+											path="9@Workflow" 
+						
+					/>
+		</extension>
+		
+				<!-- GUI -->
+
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.queryworkflow" 
+									class="pt.uminho.anote2.workflow.wizards.query.WorkflowQuery1SelectPublications"
+					/>	
+		</extension>
+		
+				<!-- Icon -->
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.queryworkflow"
+                                   icon="icons/query.png"
+                    />
+        </extension> 
+        
+        <!-- Basics Workflow -->
+        
+        <extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.workflow.operations.WorkflowBasicOperation">
+					<operation-description 	name="Information Retrieval and Extraction (Basic)"
+											uid="operations.basicsworkflow" 
+											path="9@Workflow" 
+						
+					/>
+		</extension>
+		
+				<!-- GUI -->
+
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.basicsworkflow" 
+									class="pt.uminho.anote2.workflow.wizards.basic.WorkflowBasics1PubmedSearch"
+					/>	
+		</extension>
+		
+		
+				<!-- Icon -->
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.basicsworkflow"
+                                   icon="icons/anote_icon_16.png"
+                    />
+        </extension> 
+	</extensions>	
+	
+</plugin>
+

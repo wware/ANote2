@@ -1,0 +1,11 @@
+<plugin start="false" startOrder="5">
+	<uid>pt.uminho.anote2.datastructures</uid>
+	<name>@Note2 Data Structures (Plug-in)</name>
+	<version>0.9.11</version>
+		
+	<dependencies>
+		<dependency uid="pt.uminho.anote2.core"/>
+	</dependencies>
+	
+</plugin>
+

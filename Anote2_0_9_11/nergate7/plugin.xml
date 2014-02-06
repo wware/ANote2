@@ -1,0 +1,80 @@
+<plugin start="false" startOrder="16">
+	<uid>pt.uminho.anote2.aibench.nergate</uid>
+	<name>@Note2 NER-Gate7 (Plug-in)</name>
+	<version>0.9.11</version>
+	<lifecycleclass>pt.uminho.anote2.nergate.lifecycle.Lifecycle</lifecycleclass>	
+
+	
+	<dependencies>
+		<dependency uid="pt.uminho.anote2.core"/>
+		<dependency uid="pt.uminho.anote2.datastructures"/>
+		<dependency uid="pt.uminho.anote2.aibench.corpora"/>
+		<dependency uid="pt.uminho.anote2.aibench.utils"/>
+		<dependency uid="pt.uminho.anote2.gate7"/>	
+	</dependencies>
+	
+	<extensions>
+		
+		<!-- Rel@tioN -->
+		
+		<!-- Operations -->
+		
+		<!-- Process NER Abner -->
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.nergate.operations.OperationNERAbner">
+					<operation-description 	name="Abner Tagger" 
+											uid="operations.nerabner"
+											path="2@Corpus/2@NER"
+											popupPath="2@NER"											
+					/>
+		</extension>
+		
+			<!-- Icon -->
+
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.nerabner"
+                                   icon="icons/abner.png"
+                    />
+        </extension>   
+        
+       
+        <extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.nerabner" 
+									class="pt.uminho.anote2.nergate.gui.AbnerGUI"
+					/>	
+		</extension>
+		
+		<!-- Process NER Chemical Tagger -->
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.nergate.operations.OperationNERChemistryTagging">
+					<operation-description 	name="Chemistry Tagger" 
+											uid="operations.nerChemistryTagger"
+											path="2@Corpus/2@NER"
+											popupPath="2@NER"
+					/>
+		</extension>
+		
+			<!-- Icon -->
+
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.nerChemistryTagger"
+                                   icon="icons/chemicaltagger.png"
+                    />
+        </extension>   
+         
+        <extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.nerChemistryTagger" 
+									class="pt.uminho.anote2.nergate.gui.ChemistryTaggerGUI"
+					/>	
+		</extension>
+
+	</extensions>
+
+</plugin>

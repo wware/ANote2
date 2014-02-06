@@ -1,0 +1,52 @@
+<plugin start="false" startOrder="15">
+	<uid>pt.uminho.anote2.aibench.relation</uid>
+	<name>@Note2 Rel@tion (Plug-in)</name>
+	<version>0.9.11</version>
+	<lifecycleclass>pt.uminho.anote2.relation.lifecycle.Lifecycle</lifecycleclass>	
+
+	
+	<dependencies>
+		<dependency uid="pt.uminho.anote2.core"/>
+		<dependency uid="pt.uminho.anote2.datastructures"/>
+		<dependency uid="pt.uminho.anote2.aibench.corpora"/>
+		<dependency uid="pt.uminho.anote2.aibench.utils"/>
+		<dependency uid="pt.uminho.anote2.gate7"/>	
+	</dependencies>
+	
+	<extensions>
+		
+		<!-- Rel@tioN -->
+		
+		<!-- Operations -->
+		
+		<!-- Process Relation Extration-->
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.relation.operations.OperationRelationExtraction">
+					<operation-description 	name="Rel@tion Extraction" 
+											uid="operations.rerelation"
+											path="2@Corpus/3@RE"
+											popupPath="3@RE"											
+					/>
+		</extension>
+		
+			<!-- Icon -->
+
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.rerelation"
+                                   icon="icons/Gears.png"
+                    />
+        </extension>   
+        
+        <extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.rerelation" 
+									class="pt.uminho.anote2.relation.gui.REOperationWizard1"
+					/>	
+		</extension>
+       
+
+	</extensions>
+
+</plugin>

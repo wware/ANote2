@@ -1,0 +1,71 @@
+/* A grammar for a xml annotated document
+ *
+ * Doc -> OpenTag Content CloseTag
+ * OpenTag -> '<' Elem '>'
+ * CloseTag -> '<''/' IdElem '>'
+ * Elem -> IdElem Attrs
+ * Attrs -> 
+ *        | Attrs Atrib
+ * Atrib -> IdAttr '=' val
+ * Content -> Piece
+ *          | Content Piece
+ * Piece -> OpenTag
+ *        | CloseTag
+ *        | text
+ * IdElem -> id
+ * IdAttr -> id 
+ */
+ 
+options {
+  STATIC = false ;
+}
+
+PARSER_BEGIN(XmlParser)
+package textminingplugin.grammar;
+
+public class XmlParser {
+
+  public XmlParser()  {
+    }
+
+	public void run(String input) throws ParseException, FileNotFoundException	{
+	  XmlParser parser = new XmlParser(new FileInputStream(input));
+	  parser.Start(System.out);	}
+  
+      public static void main(String args[]) throws ParseException {
+    XmlParser parser = new XmlParser(System.in);
+    parser.run("Ola");
+  }
+
+}
+PARSER_END(XmlParser)
+
+
+// LEXICAL
+
+SKIP: { " " | "\n" | "\r" | "\r\n" }
+
+TOKEN: { < VALUE : (["a"-"z","A"-"Z","0"-"9","_"])+ > }
+TOKEN: { < MINOR : "<" > }
+TOKEN: { < MAJOR : ">" > }
+TOKEN: { < BAR : "/" > }
+TOKEN: { < EQUAL : "=" > }
+TOKEN: { < TEXT : (["a"-"z","A"-"Z","0"-"9","_"])+ > }
+TOKEN: { < ID : (["a"-"z","A"-"Z","0"-"9","_"])+ > }
+
+
+// PARSER
+
+
+/* Start - > Doc EOF */
+void Start(PrintStream printStream){}
+{	Doc()
+	<EOF>
+}
+
+/* Doc -> OpenTag Content CloseTag */
+void Doc()
+{}
+{	<VALUE>
+}
+

@@ -1,0 +1,72 @@
+<plugin start="false" startOrder="10">
+	<uid>pt.uminho.anote2.carrotlinkage</uid>
+	<name>@Note2 Carrot2 (Plug-in)</name>
+	<version>0.9.11</version>
+	
+	<lifecycleclass>pt.uminho.anote2.carrot.linkage.lifecycle.Lifecycle</lifecycleclass>
+	
+	<dependencies>
+		<dependency uid="pt.uminho.anote2.core"/>
+		<dependency uid="pt.uminho.anote2.datastructures"/>
+		<dependency uid="pt.uminho.anote2.aibench.utils"/>
+		<dependency uid="pt.uminho.anote2.aibench.publicationmanager"/>	
+	</dependencies>
+	
+	<extensions>
+	
+		<!-- Operations -->
+		
+        <extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.carrot.linkage.operations.QueryGerateCarrotClusterOperation">
+					<operation-description 	name="Clustering"
+											uid="operations.querycluster" 
+											path="3@Publication Manager/1@Query" 
+											popupPath="3@ROOT"						
+					/>
+		</extension>
+		
+		<!-- GUI -->
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.querycluster" 
+									class="pt.uminho.anote2.carrot.linkage.gui.ClusteringGUI"
+					/>	
+		</extension>
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.querycluster"
+                                   icon="icons/Clustering_icon.png"
+                    />
+        </extension> 
+	
+		<!-- Create Query -->
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.carrot.linkage.operations.CreareQueryFromClusterOperation">
+					<operation-description 	name=""
+											uid="operations.createquerybycluster" 
+											path="" 
+						
+					/>
+		</extension>
+	
+		<!-- Views -->
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<view 	name="Query Clusters View" 
+							datatype="pt.uminho.anote2.aibench.publicationmanager.datatypes.QueryInformationRetrievalExtension" 
+							class="pt.uminho.anote2.carrot.linkage.views.ClustersQueryView"
+							order="3"
+							/>
+		</extension>
+		
+	</extensions>
+	
+	
+	
+</plugin>
+

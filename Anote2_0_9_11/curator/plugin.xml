@@ -1,0 +1,101 @@
+<plugin start="false" startOrder="12">
+	<uid>pt.uminho.anote2.aibench.curator</uid>
+	<name>@Note2 Curator (Plug-in)</name>
+	<version>0.9.11</version>
+	
+	<lifecycleclass>pt.uminho.anote2.aibench.curator.lifecycle.Lifecycle</lifecycleclass>	
+	
+	<dependencies>
+		<dependency uid="pt.uminho.anote2.core"/>
+		<dependency uid="pt.uminho.anote2.datastructures"/>
+		<dependency uid="pt.uminho.anote2.aibench.utils"/>
+		<dependency uid="pt.uminho.anote2.aibench.corpora"/>
+	</dependencies>
+	
+	<extensions>
+	
+	<!-- Operations -->
+	
+	<!-- Manual Curation -->
+	
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.curator.operation.OperationManualCuration">
+					<operation-description 	name="Manual Curation" 
+											uid="operations.manualcuration"
+											path="4@Corpus"
+											popupPath="20@ROOT"
+											
+					/>
+		</extension>
+		
+			<!-- Icon -->
+
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.manualcuration"
+                                   icon="icons/multigear.png"
+                    />
+        </extension>   
+		
+		
+			<!-- GUI -->
+			
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.manualcuration" 
+									class="pt.uminho.anote2.aibench.curator.gui.CreateManualCurationProcessGUI"
+					/>	
+		</extension>
+	
+	<!-- NER DOC Annot -->
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<view 	name="Curator View" 
+							datatype="pt.uminho.anote2.aibench.corpus.datatypes.NERDocumentAnnotation" 
+							class="pt.uminho.anote2.aibench.curator.view.CuratorView"
+							order="1"
+							/>
+		</extension>
+		
+		
+	<!-- Browser -->
+	
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.curator.operation.OpenBrowser">
+					<operation-description 	name="" 
+											uid="operations.openbrowser"
+					/>
+		</extension>
+		
+	<!-- Change Curator Menu Link -->	
+		
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.curator.operation.OperationChangeCuratorMenuLinkManager">
+					<operation-description 	name="Curator Menu Management" 
+											uid="operations.curatormenumanagement"
+											path="10@Settings"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.curatormenumanagement" 
+									class="pt.uminho.anote2.aibench.curator.gui.ChangeCuratorExtenalLinksMenu"
+					/>	
+		</extension>
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.curatormenumanagement"
+                                   icon="icons/proj.png"
+                    />
+        </extension>   
+		
+	</extensions>
+	
+</plugin>

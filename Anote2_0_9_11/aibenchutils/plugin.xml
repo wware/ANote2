@@ -1,0 +1,110 @@
+<plugin start="false" startOrder="6">
+	<uid>pt.uminho.anote2.aibench.utils</uid>
+	<name>@Note2 AIBench Setting (Plug-in)</name>
+	<version>0.9.11</version>
+	
+	<lifecycleclass>pt.uminho.anote2.aibench.utils.lifecycle.Lifecycle</lifecycleclass>
+		
+	<dependencies>
+		<dependency uid="pt.uminho.anote2.datastructures"/>
+		<dependency uid="pt.uminho.anote2.core"/>
+	</dependencies>
+	
+	
+	<extensions>
+		
+		<!-- Change Settings -->
+		
+		<!-- Global -->
+			
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.utils.operations.ChangeSettings">
+					<operation-description 	name="Preferences" 
+											uid="operations.changesettings"
+											path="10@Settings"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.changesettings" 
+									class="pt.uminho.anote2.aibench.utils.conf.propertiesmanager.PropertiesEditorGUI"
+					/>	
+		</extension>
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.changesettings"
+                                   icon="icons/anote_icon_16.png"
+                    />
+        </extension> 
+        
+        <!-- Update Database -->
+        	  
+        <extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.utils.operations.UpdateDatabaseOperation">
+					<operation-description 	name="" 
+											uid="operations.updatedb"
+											path=""
+					/>
+		</extension>
+		
+              <!-- Exit Program --> 
+				
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.utils.operations.ExitOperation">
+					<operation-description 	name="Exit" 
+											uid="operations.exit"
+											path="0@File"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.exit" 
+									class="pt.uminho.anote2.aibench.utils.gui.ExitGUI"
+					/>	
+		</extension>	
+		
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.exit"
+                                   icon="icons/ballshutdown.png"
+                    />
+        </extension>
+        
+        <!-- Help Menu -->
+        
+        <extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.utils.operations.Anote2WikiOperation">
+					<operation-description 	name="@Note2 Wiki" 
+											uid="operations.getwiki"
+											path="10@Help"
+					/>
+		</extension>
+		
+	
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.utils.operations.Anote2About">
+					<operation-description 	name="About @Note2" 
+											uid="operations.getabout"
+											path="100000012@Help"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.getabout" 
+									class="pt.uminho.anote2.aibench.utils.gui.AboutGUI"
+					/>	
+		</extension>	
+	
+	</extensions>
+
+</plugin>

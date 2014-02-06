@@ -1,0 +1,49 @@
+<plugin start="false" startOrder="13">
+	<uid>pt.uminho.anote2.aibench.relationcoocorrence</uid>
+	<name>@Note2 Rel@tioN Cooccurrence (Plug-in)</name>
+	<version>0.9.11</version>
+	
+	<lifecycleclass>pt.uminho.anote2.relation.cooccurrence.lifecycle.Lifecycle</lifecycleclass>	
+	
+
+	<dependencies>
+		<dependency uid="pt.uminho.anote2.core"/>
+		<dependency uid="pt.uminho.anote2.datastructures"/>
+		<dependency uid="pt.uminho.anote2.aibench.corpora"/>
+		<dependency uid="pt.uminho.anote2.aibench.utils"/>
+	</dependencies>
+	
+	<extensions>
+		
+		<!-- Process Relation Co-ocorrence Extration-->
+		
+		<!-- Process Relation Extration-->
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.relation.cooccurrence.operations.OperationRECooccurrence">
+					<operation-description 	name="Rel@tion Co-occurrence Extraction"
+											uid="operations.recooccurrence"
+											path="2@Corpus/3@RE"
+											popupPath="3@RE"
+					/>
+		</extension>
+		
+			<!-- Icon -->
+
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.recooccurrence"
+                                   icon="icons/Gears.png"
+                    />
+        </extension>   
+        
+        <extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.recooccurrence" 
+									class="pt.uminho.anote2.relation.cooccurrence.gui.RECooccurrenceOperationWizard1"
+					/>	
+		</extension>
+
+	</extensions>
+
+</plugin>

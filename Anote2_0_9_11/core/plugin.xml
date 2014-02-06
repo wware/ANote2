@@ -1,0 +1,7 @@
+<plugin start="false" startOrder="4">
+	<uid>pt.uminho.anote2.core</uid>
+	<name>@Note2 Core (Plug-in)</name>
+	<version>0.9.11</version>	
+</plugin>
+
+

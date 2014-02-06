@@ -1,0 +1,63 @@
+<plugin start="false" startOrder="11">
+	<uid>pt.uminho.anote2.aibench.ner</uid>
+	<name>@Note2 Entity Recognition [Based on Lexical Resources] (Plug-in)</name>
+	<version>0.9.11</version>
+	
+	<lifecycleclass>pt.uminho.anote2.aibench.ner.lifecycle.Lifecycle</lifecycleclass>	
+	
+	
+	<dependencies>
+		<dependency uid="pt.uminho.anote2.core"/>
+		<dependency uid="pt.uminho.anote2.datastructures"/>
+		<dependency uid="pt.uminho.anote2.aibench.corpora"/>
+		<dependency uid="pt.uminho.anote2.aibench.utils"/>
+	</dependencies>
+	
+	<extensions>
+	
+		<!-- Operations -->
+		
+		<!-- NER -->
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.ner.operations.OperationNerAnote">
+					<operation-description 	name="Lexical Resources" 
+											uid="operations.neranote"
+											path="2@Corpus/2@NER"
+											popupPath="2@NER"
+											
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.neranote" 
+									class="pt.uminho.anote2.aibench.ner.gui.NERAnoteOperationWizard1"
+					/>	
+		</extension>
+		
+			<!-- Icon -->
+
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.neranote"
+                                   icon="icons/Gearsblue.png"
+                    />
+        </extension>   
+		
+		
+		<!-- NER Corpus -->
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.ner.operations.OperationApplySameNERAnote">
+					<operation-description 	name="" 
+											uid="operations.neranotecorpus"
+					/>
+		</extension>
+		
+
+	</extensions>
+
+</plugin>
