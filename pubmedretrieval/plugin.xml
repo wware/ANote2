@@ -1,0 +1,240 @@
+<plugin start="true">
+	<uid>pt.uminho.anote2.aibench.referencemanager</uid>
+	<name>@Note2 Publication Manager</name>
+	<version>1.0.0</version>
+	
+	
+	<dependencies>
+		<dependency uid="pt.uminho.anote2.core"/>
+		<dependency uid="pt.uminho.anote2.datastructures"/>
+		<dependency uid="pt.uminho.anote2.aibench.utils"/>
+	</dependencies>
+
+	<extensions>
+		<!-- Init Reference manager -->
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.publicationmanager.operations.InitReferenceManager">
+					<operation-description 	name="Start Publication Manager" 
+											uid="operations.initreferencemanager"
+											path="3@Publication Manager"
+											help=""/>
+											
+					/>
+		</extension>
+			<!-- Icon -->
+
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.initreferencemanager"
+                                   icon="icons/Button-go.png"
+                    />
+        </extension>   
+		<!-- Pubmed Search -->
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.publicationmanager.operations.PubmedSearchOperation">
+					<operation-description 	name="Search"
+											uid="operations.pubmedsearch" 
+											path="3@Publication Manager" 
+						
+					/>
+		</extension>
+					
+			<!-- GUI Operation -->  
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.pubmedsearch" 
+									class="pt.uminho.anote2.aibench.publicationmanager.gui.PubmedSearchGUI"
+					/>	
+		</extension>
+		
+			<!-- Icon -->
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.pubmedsearch"
+                                   icon="icons/pubmed.png"
+                    />
+        </extension>
+
+        	
+        <!-- Update Query -->
+        
+        <extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.publicationmanager.operations.UpdateQueryOperation">
+					<operation-description 	name="Update"
+											uid="operations.pubmedsearchupdate" 
+											path="3@Publication Manager/Query" 
+						
+					/>
+		</extension>
+		
+			<!-- GUI Operation --> 		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.pubmedsearchupdate" 
+									class="pt.uminho.anote2.aibench.publicationmanager.gui.UpdateGUI"
+					/>	
+		</extension>
+			<!-- Icon -->
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.pubmedsearchupdate"
+                                   icon="icons/Refresh.png"
+                    />
+        </extension>
+        
+        <!-- Add File to Publication -->
+        
+        <extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.publicationmanager.operations.AddFileToPublicationManagerOperation">
+					<operation-description 	name=""
+											uid="operations.addfile" 		
+					/>
+		</extension>
+		
+		<!-- Add a Publication to a query -->
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.publicationmanager.operations.AddPublicationToQueryOperation">
+					<operation-description 	name="Add Publication"
+											uid="operations.addpublicationquery" 
+											path="3@Publication Manager/Query" 
+						
+					/>
+		</extension>
+			<!-- GUI Operation --> 				
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.addpublicationquery" 
+									class="pt.uminho.anote2.aibench.publicationmanager.gui.AddNewPublicationGUI"
+					/>	
+		</extension>
+		
+			<!-- Icon -->
+				
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.addpublicationquery"
+                                   icon="icons/Open18.png"
+                    />
+        </extension> 
+		
+		<!-- Pubmed Crawl -->
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.publicationmanager.operations.JournalRetrivalListDocs">
+					<operation-description 	name="Journal Retrieval"
+											uid="operations.journalretrievalmuldoc"
+											path="3@Publication Manager/Query"  
+						
+					/>
+		</extension>
+		
+			<!-- GUI Operation --> 			
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.journalretrievalmuldoc" 
+									class="pt.uminho.anote2.aibench.publicationmanager.gui.JournalRetrievalGUI"
+					/>	
+		</extension>
+			
+			<!-- Icon -->
+	
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.journalretrievalmuldoc"
+                                   icon="icons/Download.png"
+                    />
+        </extension>	
+		
+		<!-- Relevance Change -->
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.publicationmanager.operations.SelectRelevance">
+					<operation-description 	name="Select Relevance" 
+											uid="operations.selectrelevance"
+					/>
+		</extension>
+		
+		<!-- Exit Operation -->
+		
+		 <extension uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.publicationmanager.operations.ExitOperation">
+					<operation-description 	name="Close Publication Manager"
+											uid="operations.exitop" 
+											path="3@Publication Manager" 
+						
+					/>
+		</extension>
+			<!-- Icon -->
+					
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.exitop"
+                                   icon="icons/Button-standby.png"
+                    />
+        </extension> 
+
+
+		<!-- View dos Datatypes -->
+		
+		<!-- Reference Manager -->
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<view 	name="Publication Manager (Queries) View" 
+							datatype="pt.uminho.anote2.aibench.publicationmanager.datatypes.PublicationManager" 
+							class="pt.uminho.anote2.aibench.publicationmanager.views.PublicationManagerView"
+							help=""/>
+		</extension>
+		
+		<!-- Query -->
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<view 	name="Query View" 
+							datatype="pt.uminho.anote2.aibench.publicationmanager.datatypes.QueryInformationRetrievalExtension" 
+							class="pt.uminho.anote2.aibench.publicationmanager.views.QueryView"
+							help=""/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<view 	name="Query Relevance View" 
+							datatype="pt.uminho.anote2.aibench.publicationmanager.datatypes.QueryInformationRetrievalExtension" 
+							class="pt.uminho.anote2.aibench.publicationmanager.views.QueryRelevanceView"
+							help=""/>
+		</extension>
+
+		<!-- Icons -->
+		<!-- Reference Manager -->
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<icon-datatype  datatype="pt.uminho.anote2.aibench.publicationmanager.datatypes.PublicationManager" 
+									icon="icons/catalogue.png"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<icon-datatype  datatype="pt.uminho.anote2.aibench.publicationmanager.datatypes.QueryInformationRetrievalExtension" 
+									icon="icons/query.png"
+					/>
+		</extension>	
+	
+		
+	</extensions>
+	
+</plugin>

@@ -1,0 +1,49 @@
+<plugin start="true">
+	<uid>pt.uminho.anote2.aibench.ner</uid>
+	<name>@Note2 Entity Recognition (Plug-in></name>
+	<version>1.0.0</version>
+	
+	<dependencies>
+		<dependency uid="pt.uminho.anote2.core"/>
+		<dependency uid="pt.uminho.anote2.datastructures"/>
+		<dependency uid="pt.uminho.anote2.aibench.corpora"/>
+		<dependency uid="pt.uminho.anote2.aibench.utils"/>
+	</dependencies>
+	
+	<extensions>
+	
+		<!-- Operations -->
+		
+		<!-- NER -->
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.ner.operations.OperationNerAnote">
+					<operation-description 	name="Lexical Resources" 
+											uid="operations.neranote"
+											path="2@Corpus/NER"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.neranote" 
+									class="pt.uminho.anote2.aibench.ner.gui.NERAnoteOperationWizard1"
+					/>	
+		</extension>
+		
+		<!-- NER Corpus -->
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.ner.operations.OperationApplySameNERAnote">
+					<operation-description 	name="" 
+											uid="operations.neranotecorpus"
+											path=""
+					/>
+		</extension>
+		
+
+	</extensions>
+
+</plugin>

@@ -1,0 +1,33 @@
+<plugin start="false">
+	<uid>pt.uminho.anote2.aibench.relation</uid>
+	<name>@Note2 Rel@tion</name>
+	<version>1.0.0</version>
+
+	
+	<dependencies>
+		<dependency uid="pt.uminho.anote2.core"/>
+		<dependency uid="pt.uminho.anote2.datastructures"/>
+		<dependency uid="pt.uminho.anote2.aibench.corpora"/>
+		<dependency uid="pt.uminho.anote2.aibench.utils"/>
+		<dependency uid="pt.uminho.anote2.gate"/>	
+	</dependencies>
+	
+	<extensions>
+		
+		<!-- Rel@tioN -->
+		
+		<!-- Operations -->
+		
+		<!-- Process Relation Extration-->
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.relation.operations.OperationRelationExtraction">
+					<operation-description 	name="Rel@tion Extraction" 
+											uid="operations.rerelation"
+											path="2@Corpus/RE"
+					/>
+		</extension>
+
+	</extensions>
+
+</plugin>

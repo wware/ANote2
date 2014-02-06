@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="lib" path="ant/ant-contrib.jar"/>
+	<classpathentry kind="lib" path="lib/aibench.jar"/>
+	<classpathentry kind="lib" path="lib/log4j.jar"/>
+	<classpathentry kind="lib" path="lib/tar.jar"/>
+	<classpathentry kind="lib" path="dataStructures/lib/mysql-connector-java-5.1.8-bin.jar"/>
+	<classpathentry kind="lib" path="dataStructures/lib/pdfbox-all.jar"/>
+	<classpathentry kind="lib" path="dataStructures/lib/sqlitejdbc-v056.jar"/>
+	<classpathentry kind="lib" path="aibenchutils/lib/checkstyle-all-4.2.jar"/>
+	<classpathentry kind="lib" path="aibenchutils/lib/commons-codec-1.4.jar"/>
+	<classpathentry kind="lib" path="aibenchutils/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="aibenchutils/lib/htmlcleaner1_55.jar"/>
+	<classpathentry kind="lib" path="plugins_bin/core.jar"/>
+	<classpathentry kind="lib" path="plugins_bin/workbench.jar"/>
+	<classpathentry kind="lib" path="pubmedretrieval/lib/eutils.jar"/>
+	<classpathentry kind="lib" path="pubmedretrieval/lib/stringeditor.jar"/>
+	<classpathentry kind="lib" path="dataStructures/lib/jpedalSTD.jar"/>
+	<classpathentry kind="lib" path="resources/lib/patbinfree153.jar"/>
+	<classpathentry kind="lib" path="gate/lib/annotationMerging.jar"/>
+	<classpathentry kind="lib" path="gate/lib/Chunker.jar"/>
+	<classpathentry kind="lib" path="gate/lib/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="gate/lib/compiler.jar"/>
+	<classpathentry kind="lib" path="gate/lib/gate-asm.jar"/>
+	<classpathentry kind="lib" path="gate/lib/gate-stanford.jar"/>
+	<classpathentry kind="lib" path="gate/lib/gate.jar"/>
+	<classpathentry kind="lib" path="gate/lib/gateHmm.jar"/>
+	<classpathentry kind="lib" path="gate/lib/hindi.jar"/>
+	<classpathentry kind="lib" path="gate/lib/iaaMain.jar"/>
+	<classpathentry kind="lib" path="gate/lib/icu4j.jar"/>
+	<classpathentry kind="lib" path="gate/lib/japec.jar"/>
+	<classpathentry kind="lib" path="gate/lib/jasper-compiler-jdt.jar"/>
+	<classpathentry kind="lib" path="gate/lib/jdom.jar"/>
+	<classpathentry kind="lib" path="gate/lib/nekohtml-1.9.8+2039483.jar"/>
+	<classpathentry kind="lib" path="gate/lib/ontotext.jar"/>
+	<classpathentry kind="lib" path="gate/lib/standard_extensions.jar"/>
+	<classpathentry kind="lib" path="gate/lib/stanford-parser.jar"/>
+	<classpathentry kind="lib" path="gate/lib/stax-api-1.0.1.jar"/>
+	<classpathentry kind="lib" path="gate/lib/stemmer.jar"/>
+	<classpathentry kind="lib" path="gate/lib/TreeTagger.jar"/>
+	<classpathentry kind="lib" path="gate/lib/xercesImpl.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="src" output="plugins_bin/core" path="core"/>
+	<classpathentry excluding="jpedalSTD/|jpedalSTD/" kind="src" output="plugins_bin/data" path="dataStructures"/>
+	<classpathentry excluding="httpclient/" kind="src" output="plugins_bin/aiu" path="aibenchutils"/>
+	<classpathentry kind="src" output="plugins_bin/resources" path="resources"/>
+	<classpathentry kind="src" output="plugins_bin/corpus" path="corpus"/>
+	<classpathentry kind="src" output="plugins_bin/curator" path="curator"/>
+	<classpathentry kind="src" output="plugins_bin/nerui" path="neraibench"/>
+	<classpathentry kind="src" output="plugins_bin/corpus_loaders" path="corpusloaders"/>
+	<classpathentry kind="src" output="plugins_bin/gate" path="gate"/>
+	<classpathentry kind="src" output="plugins_bin/re" path="relation"/>
+	<classpathentry excluding="jpedalSTD/|commons-httpclient-3.1/|commons-httpclient-3.1/|jpedalSTD/|httpclient/|httpclient/" kind="src" output="plugins_bin/pm" path="pubmedretrieval"/>
+	<classpathentry kind="src" path="gate61"/>
+	<classpathentry kind="lib" path="aibenchutils/httpclient"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

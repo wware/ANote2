@@ -1,0 +1,52 @@
+<plugin start="true">
+	<uid>pt.uminho.anote2.aibench.corpusloaders</uid>
+	<name>@Note2 Corpus Loaders (Plug-in)</name>
+	<version>1.0.0</version>
+		
+	<dependencies>
+		<dependency uid="pt.uminho.anote2.core"/>
+		<dependency uid="pt.uminho.anote2.datastructures"/>
+		<dependency uid="pt.uminho.anote2.aibench.corpora"/>
+		<dependency uid="pt.uminho.anote2.aibench.utils"/>
+		<dependency uid="pt.uminho.anote2.gate"/>		
+	</dependencies>
+	
+	<extensions>
+	
+		<!-- Corpus Loaders -->
+		
+		<!-- Operations -->
+		
+				<!-- AIMED Proteins Loader-->
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.corpusloaders.operations.CreateCorpusByAIMEDProteinCorpus">
+					<operation-description 	name="AIMED Protein Corpus" 
+											uid="operations.ccbyaimed"
+											path="2@Corpus/Create"
+					/>
+		</extension>
+		
+				<!-- @Note v1.0 Loader -->
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.corpusloaders.operations.CreateCorpusByAnotev1Corpus">
+					<operation-description 	name="@Note v1.0 Corpus Loader" 
+											uid="operations.ccbyanote"
+											path="2@Corpus/Create"
+					/>
+		</extension>
+		
+				<!-- Genia Event Corpus Loader -->
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.corpusloaders.operations.CreateCorpusByGeniaEventCorpus">
+					<operation-description 	name="Genia Event Corpus Loader" 
+											uid="operations.ccbygeniaevent"
+											path="2@Corpus/Create"
+					/>
+		</extension>
+
+	</extensions>
+
+</plugin>

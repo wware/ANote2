@@ -1,0 +1,15 @@
+<plugin start="true">
+	<uid>pt.uminho.anote2.gate.6.1.47</uid>
+	<name>@Note2 Gate6.1 (Plug-in)</name>
+	<version>6.1.47</version>
+		
+	<dependencies>
+		<dependency uid="pt.uminho.anote2.core"/>
+		<dependency uid="pt.uminho.anote2.datastructures"/>
+	</dependencies>
+	
+	<extensions>
+
+	</extensions>
+
+</plugin>

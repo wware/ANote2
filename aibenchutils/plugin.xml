@@ -1,0 +1,104 @@
+<plugin start="false">
+	<uid>pt.uminho.anote2.aibench.utils</uid>
+	<name>@Note2 AIBench Setting (Plug-in)</name>
+	<version>1.0.0</version>
+
+	<lifecycleclass>pt.uminho.anote2.aibench.utils.lifecycle.Lifecycle</lifecycleclass>	
+
+	<dependencies>
+		<dependency uid="pt.uminho.anote2.datastructures"/>
+		<dependency uid="pt.uminho.anote2.core"/>
+	</dependencies>
+	
+	<extensions>
+
+		<!-- Create File Settings -->
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.utils.operations.CreateConfigurationsFile">
+					<operation-description 	name="Create Configuration File" 
+											uid="operations.createconfigurationfile"
+					/>
+		</extension>
+		
+		<!-- Change Settings -->
+		
+			<!-- Proxy -->
+			
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.utils.operations.ChangeProxySettingsOperation">
+					<operation-description 	name="Proxy" 
+											uid="operations.changeproxy"
+											path="5@Settings"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.changeproxy" 
+									class="pt.uminho.anote2.aibench.utils.gui.ChangeProxySettingsGUI"
+					/>	
+		</extension>
+		
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.changeproxy"
+                                   icon="icons/internet.png"
+                    />
+        </extension>   
+			
+		
+		
+			<!-- Database -->
+			
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.utils.operations.ChangeDBSettingsOperation">
+					<operation-description 	name="Database" 
+											uid="operations.createdatabase"
+											path="5@Settings"
+					/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.createdatabase" 
+									class="pt.uminho.anote2.aibench.utils.gui.ChangeDBSettingsGUI"
+					/>	
+		</extension>
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.createdatabase"
+                                   icon="icons/database.png"
+                    />
+        </extension>
+       
+        
+        <!-- Exit Program --> 
+				
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.utils.operations.ExitOperation">
+					<operation-description 	name="Exit" 
+											uid="operations.exit"
+											path="6@Program"
+					/>
+		</extension>	
+		
+		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.exit"
+                                   icon="icons/ballshutdown.png"
+                    />
+        </extension>
+        
+	
+	
+	</extensions>
+
+</plugin>

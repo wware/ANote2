@@ -1,0 +1,52 @@
+<plugin start="true">
+	<uid>pt.uminho.anote2.aibench.curator</uid>
+	<name>@Note2 Curator (Plug-in)</name>
+	<version>1.0.0</version>
+	
+	<dependencies>
+		<dependency uid="pt.uminho.anote2.core"/>
+		<dependency uid="pt.uminho.anote2.datastructures"/>
+		<dependency uid="pt.uminho.anote2.aibench.utils"/>
+		<dependency uid="pt.uminho.anote2.aibench.corpora"/>
+	</dependencies>
+	
+	<extensions>
+	
+	<!-- Operations -->
+	
+	<!-- Manual Curation -->
+	
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.curator.operation.OperationManualCuration">
+					<operation-description 	name="Manual Curation" 
+											uid="operations.manualcuration"
+											path="4@Corpus"
+					/>
+		</extension>
+	
+	
+	<!-- NER DOC Annot -->
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<view 	name="Curator View" 
+							datatype="pt.uminho.anote2.aibench.corpus.datatypes.NERDocumentAnnotation" 
+							class="pt.uminho.anote2.aibench.curator.view.ANoteDocumentView"
+							/>
+		</extension>
+		
+	<!-- Browser -->
+	
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.curator.operation.OpenBrowser">
+					<operation-description 	name="" 
+											uid="operations.openbrowser"
+											path=""
+					/>
+		</extension>	
+		
+	</extensions>
+	
+</plugin>

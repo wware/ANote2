@@ -1,0 +1,262 @@
+<plugin start="true">
+	<uid>pt.uminho.anote2.aibench.corpora</uid>
+	<name>@Note2 Corpora (Plug-in)</name>
+	<version>1.0.0</version>
+	
+	<dependencies>
+		<dependency uid="pt.uminho.anote2.core"/>		
+		<dependency uid="pt.uminho.anote2.datastructures"/>
+		<dependency uid="pt.uminho.anote2.aibench.utils"/>
+	</dependencies>
+	
+	<extensions>
+	
+	<!-- Operations -->
+		<!-- Init Corpora Plug-In-->
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.corpus.operations.InitProject">
+					<operation-description 	name="Start Corpora" 
+											uid="operations.initproject"
+											path="1@Corpora"
+					/>
+		</extension>
+		
+			<!-- Icon -->
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.initproject"
+                                   icon="icons/Button-go.png"
+                    />
+        </extension>   
+		
+		<!-- Exit Operation -->
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.corpus.operations.ExitOperation">
+					<operation-description 	name="Close Corpora" 
+											uid="operations.exitprogramoperation"
+											path="1@Corpora"
+					/>
+		</extension>
+		
+			<!-- Icon -->		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.exitprogramoperation"
+                                   icon="icons/Button-standby.png"
+                    />
+        </extension>  
+        
+        <!-- Corpus --> 
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.corpus.operations.CreateCorpusOperationByPublicationManager">
+					<operation-description 	name="By Publication Manager" 
+											uid="operations.initcreatecorpuspublicationmanager"
+											path="2@Corpus/Create"
+					/>
+		</extension>
+		
+			<!-- GUI -->
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.initcreatecorpuspublicationmanager" 
+									class="pt.uminho.anote2.aibench.corpus.gui.CreateCorpusWizard1"
+					/>	
+		</extension>
+		
+		<!-- Change colors --> 
+		
+		<extension 	uid="aibench.core" 
+					name="aibench.core.operation-definition" 
+					class="pt.uminho.anote2.aibench.corpus.operations.ChangeClassColor">
+					<operation-description 	name="Class Color" 
+											uid="operations.changeclasscolor"
+											path="5@Settings"
+					/>
+		</extension>
+			<!-- GUI -->
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<gui-operation 	operation="operations.changeclasscolor" 
+									class="pt.uminho.anote2.aibench.corpus.gui.ClassEditGUI"
+					/>	
+		</extension>
+		
+			<!-- Icon -->		
+		<extension  uid="aibench.workbench"
+                    name="aibench.workbench.view" >
+                    <icon-operation   operation="operations.changeclasscolor"
+                                   icon="icons/colorclass.png"
+                    />
+        </extension> 
+	
+		
+		<!-- Datatypes View -->
+		
+		
+		<!-- Corpora -->
+			
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<view 	name="Corpora View" 
+							datatype="pt.uminho.anote2.aibench.corpus.datatypes.Corpora" 
+							class="pt.uminho.anote2.aibench.corpus.view.CorporaView"
+							help=""/>
+		</extension>
+		
+		<!-- Corpus -->
+			
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<view 	name="Processes View" 
+							datatype="pt.uminho.anote2.aibench.corpus.datatypes.Corpus" 
+							class="pt.uminho.anote2.aibench.corpus.view.CorpusProcessesView"
+							help=""/>
+		</extension>
+			
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<view 	name="Documents View" 
+							datatype="pt.uminho.anote2.aibench.corpus.datatypes.Corpus" 
+							class="pt.uminho.anote2.aibench.corpus.view.CorpusDocumentsView"
+							help=""/>
+		</extension>
+		
+		<!-- NER Process View -->
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<view 	name="Process (Entity) Stats  View" 
+							datatype="pt.uminho.anote2.aibench.corpus.datatypes.NERProcess" 
+							class="pt.uminho.anote2.aibench.corpus.view.NEREntityStatisticsView"
+							help=""/>
+		</extension>
+		
+				<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<view 	name="Annotated Documents View" 
+							datatype="pt.uminho.anote2.aibench.corpus.datatypes.NERProcess" 
+							class="pt.uminho.anote2.aibench.corpus.view.NERProcessAnnotationDocumentsView"
+							help=""/>
+		</extension>
+		
+		<!-- RE PRocess View -->
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<view 	name="Process (Entity) Stats View" 
+							datatype="pt.uminho.anote2.aibench.corpus.datatypes.REProcess" 
+							class="pt.uminho.anote2.aibench.corpus.view.REEntityStatisticsView"
+							help=""/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<view 	name="Process Relations Resume Stats View" 
+							datatype="pt.uminho.anote2.aibench.corpus.datatypes.REProcess" 
+							class="pt.uminho.anote2.aibench.corpus.view.REProcessRelationsResumeStats"
+							help=""/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<view 	name="Process Relations View" 
+							datatype="pt.uminho.anote2.aibench.corpus.datatypes.REProcess" 
+							class="pt.uminho.anote2.aibench.corpus.view.RERelationsViewer"
+							help=""/>
+		</extension>
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<view 	name="Annotated Documents View" 
+							datatype="pt.uminho.anote2.aibench.corpus.datatypes.REProcess" 
+							class="pt.uminho.anote2.aibench.corpus.view.REProcessAnnotationDocumentsView"
+							help=""/>
+		</extension>
+		
+		<!-- NER DOC Annot -->
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<view 	name="NER Process Stats View" 
+							datatype="pt.uminho.anote2.aibench.corpus.datatypes.NERDocumentAnnotation" 
+							class="pt.uminho.anote2.aibench.corpus.view.NERAnnotatedDocumentView"
+							help=""/>
+		</extension>
+		
+		
+		<!-- RE DOC Annot -->
+		
+		<extension 	uid="aibench.workbench" 
+					name="aibench.workbench.view">
+					<view 	name="NER Process Stats  View" 
+							datatype="pt.uminho.anote2.aibench.corpus.datatypes.REDocumentAnnotation" 
+							class="pt.uminho.anote2.aibench.corpus.view.REAnnotatedDocumentView"
+							help=""/>
+		</extension>
+		
+		
+		<!-- Icons -->
+			<!-- Project -->
+		
+			<extension 	uid="aibench.workbench" 
+						name="aibench.workbench.view">
+						<icon-datatype  datatype="pt.uminho.anote2.aibench.corpus.datatypes.Corpora" 
+										icon="icons/Project28.png"
+						/>
+			</extension>
+			
+			<!-- Corpus -->
+		
+			<extension 	uid="aibench.workbench" 
+						name="aibench.workbench.view">
+						<icon-datatype  datatype="pt.uminho.anote2.aibench.corpus.datatypes.Corpus" 
+										icon="icons/Corpus26.png"
+						/>
+			</extension>
+			
+			<!-- NERProcess-->
+		
+			<extension 	uid="aibench.workbench" 
+						name="aibench.workbench.view">
+						<icon-datatype  datatype="pt.uminho.anote2.aibench.corpus.datatypes.NERProcess" 
+									icon="icons/Gearsblue.png"
+					/>
+			</extension>
+			
+			<!-- REProcess-->
+		
+			<extension 	uid="aibench.workbench" 
+						name="aibench.workbench.view">
+						<icon-datatype  datatype="pt.uminho.anote2.aibench.corpus.datatypes.REProcess" 
+									icon="icons/Gears.png"
+					/>
+			</extension>
+		
+			<!-- NERDocumentProcess -->
+			
+			<extension 	uid="aibench.workbench" 
+						name="aibench.workbench.view">
+						<icon-datatype  datatype="pt.uminho.anote2.aibench.corpus.datatypes.NERDocumentAnnotation" 
+									icon="icons/documents.png"
+					/>
+			</extension>
+
+			<!-- REDocumentProcess -->			
+			<extension 	uid="aibench.workbench" 
+						name="aibench.workbench.view">
+						<icon-datatype  datatype="pt.uminho.anote2.aibench.corpus.datatypes.REDocumentAnnotation" 
+									icon="icons/documents.png"
+					/>
+			</extension>
+		
+		
+	</extensions>
+		
+	
+</plugin>
